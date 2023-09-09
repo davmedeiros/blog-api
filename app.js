@@ -3,6 +3,14 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+require('dotenv').config();
+const mongoose = require('mongoose');
+
+const main = async () => {
+  await mongoose.connect(process.env.MONGODB_URI);
+};
+
+main().catch((err) => console.log(err));
 
 const router = require('./routes/router');
 
