@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const userController = require('../controllers/userController');
 
 // Home
 router.get('/', (req, res) => {
@@ -7,19 +8,17 @@ router.get('/', (req, res) => {
 });
 
 // User
-router.get('/user/:id', (req, res) => {
-  res.send(`GET ${req.url} - to be implemented...`);
-});
+router.get('/user/:username', userController.get);
 
-router.post('/user/:id', (req, res) => {
+router.post('/user/:username', (req, res) => {
   res.send(`POST ${req.url} - to be implemented...`);
 });
 
-router.put('/user/:id', (req, res) => {
+router.put('/user/:username', (req, res) => {
   res.send(`PUT ${req.url} - to be implemented...`);
 });
 
-router.delete('/user/:id', (req, res) => {
+router.delete('/user/:username', (req, res) => {
   res.send(`DELETE ${req.url} - to be implemented...`);
 });
 
