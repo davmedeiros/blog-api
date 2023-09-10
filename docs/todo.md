@@ -20,6 +20,7 @@
 
 ### Update
 
+- [x] Users can update their user.
 - [ ] Users can publish posts.
 - [ ] Users can edit posts.
 
