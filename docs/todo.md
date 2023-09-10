@@ -8,12 +8,13 @@
 
 ### Create
 
-- [ ] Anyone can create a user account.
+- [ ] Anyone can create a user.
 - [ ] Users can create posts.
 - [ ] Anyone can comment on posts.
 
 ### Read
 
+- [ ] Anyone can view a user.
 - [ ] Anyone can read posts.
 - [ ] Anyone can read comments.
 
@@ -25,4 +26,4 @@
 ### Delete
 
 - [ ] Users can delete posts.
-- [ ] Users can delete their account.
+- [ ] Users can delete themselves.
