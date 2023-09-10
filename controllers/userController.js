@@ -61,8 +61,6 @@ exports.put = [
       'id'
     ).exec();
 
-    console.log(id);
-
     if (!id) {
       const err = new Error('User not found');
       err.status = 404;
