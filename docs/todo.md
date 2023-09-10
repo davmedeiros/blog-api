@@ -9,22 +9,22 @@
 ### Create
 
 - [x] Anyone can create a user.
-- [ ] Users can create posts.
-- [ ] Anyone can comment on posts.
+- [x] Users can create posts.
+- [x] Anyone can comment on posts.
 
 ### Read
 
 - [x] Anyone can view a user.
-- [ ] Anyone can read posts.
-- [ ] Anyone can read comments.
+- [x] Anyone can read posts.
+- [x] Anyone can read comments.
 
 ### Update
 
 - [x] Users can update their user.
-- [ ] Users can publish posts.
-- [ ] Users can edit posts.
+- [x] Users can publish posts.
+- [x] Users can edit posts.
 
 ### Delete
 
-- [ ] Users can delete posts.
+- [x] Users can delete posts.
 - [x] Users can delete themselves.
