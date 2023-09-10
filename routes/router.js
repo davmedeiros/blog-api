@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
+const postController = require('../controllers/postController');
 
 // Home
 router.get('/', (req, res) => {
@@ -17,20 +18,12 @@ router.put('/user/:username', userController.put);
 router.delete('/user/:username', userController.delete);
 
 // Post
-router.get('/post/:id', (req, res) => {
-  res.send(`GET ${req.url} - to be implemented...`);
-});
+router.get('/post/:username/:id', postController.get);
 
-router.post('/post/:id', (req, res) => {
-  res.send(`POST ${req.url} - to be implemented...`);
-});
+router.post('/post/:username', postController.post);
 
-router.put('/post/:id', (req, res) => {
-  res.send(`PUT ${req.url} - to be implemented...`);
-});
+router.put('/post/:username/:id', postController.put);
 
-router.delete('/post/:id', (req, res) => {
-  res.send(`DELETE ${req.url} - to be implemented...`);
-});
+router.delete('/post/:username/:id', postController.delete);
 
 module.exports = router;
