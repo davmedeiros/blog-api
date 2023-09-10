@@ -10,4 +10,4 @@ CommentSchema.virtual('url').get(function () {
   return `/comment/${this._id}`;
 });
 
-exports.module = mongoose.model('Comment', CommentSchema);
+module.exports = mongoose.model('Comment', CommentSchema);
