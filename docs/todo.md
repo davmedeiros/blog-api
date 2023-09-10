@@ -8,13 +8,13 @@
 
 ### Create
 
-- [ ] Anyone can create a user.
+- [x] Anyone can create a user.
 - [ ] Users can create posts.
 - [ ] Anyone can comment on posts.
 
 ### Read
 
-- [ ] Anyone can view a user.
+- [x] Anyone can view a user.
 - [ ] Anyone can read posts.
 - [ ] Anyone can read comments.
 

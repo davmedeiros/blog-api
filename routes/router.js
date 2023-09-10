@@ -10,9 +10,7 @@ router.get('/', (req, res) => {
 // User
 router.get('/user/:username', userController.get);
 
-router.post('/user/:username', (req, res) => {
-  res.send(`POST ${req.url} - to be implemented...`);
-});
+router.post('/user', userController.post);
 
 router.put('/user/:username', (req, res) => {
   res.send(`PUT ${req.url} - to be implemented...`);
