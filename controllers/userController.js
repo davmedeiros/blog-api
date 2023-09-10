@@ -10,5 +10,5 @@ exports.get = asyncHandler(async (req, res, next) => {
     return next(err);
   }
 
-  res.send(user);
+  res.json({ data: { user } });
 });
