@@ -27,4 +27,4 @@
 ### Delete
 
 - [ ] Users can delete posts.
-- [ ] Users can delete themselves.
+- [x] Users can delete themselves.
