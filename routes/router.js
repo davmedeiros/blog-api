@@ -12,9 +12,7 @@ router.get('/user/:username', userController.get);
 
 router.post('/user', userController.post);
 
-router.put('/user/:username', (req, res) => {
-  res.send(`PUT ${req.url} - to be implemented...`);
-});
+router.put('/user/:username', userController.put);
 
 router.delete('/user/:username', (req, res) => {
   res.send(`DELETE ${req.url} - to be implemented...`);

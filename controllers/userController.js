@@ -43,3 +43,41 @@ exports.post = [
     }
   }),
 ];
+
+exports.put = [
+  body('username')
+    .trim()
+    .isLength({ min: 5, max: 15 })
+    .withMessage('Username must be 5-15 characters long.')
+    .isAlphanumeric()
+    .withMessage('Username must be alphanumeric.'),
+  body('name').trim(),
+  body('surname').trim(),
+
+  asyncHandler(async (req, res, next) => {
+    const errors = validationResult(req);
+    const id = await User.findOne({ username: req.params.username }).exec();
+
+    if (!id) {
+      const err = new Error('User not found');
+      err.status = 404;
+      return next(err);
+    }
+
+    const user = new User({
+      username: req.body.username,
+      name: req.body.name,
+      surname: req.body.surname,
+      _id: id,
+    });
+
+    if (!errors.isEmpty()) {
+      const err = new Error(JSON.stringify(errors.array()));
+      err.status = 400;
+      return next(err);
+    } else {
+      const updatedUser = await User.findByIdAndUpdate(id, user, {});
+      res.json({ data: { updatedUser } });
+    }
+  }),
+];
