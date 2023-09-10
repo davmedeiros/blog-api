@@ -14,9 +14,7 @@ router.post('/user', userController.post);
 
 router.put('/user/:username', userController.put);
 
-router.delete('/user/:username', (req, res) => {
-  res.send(`DELETE ${req.url} - to be implemented...`);
-});
+router.delete('/user/:username', userController.delete);
 
 // Post
 router.get('/post/:id', (req, res) => {

@@ -56,7 +56,12 @@ exports.put = [
 
   asyncHandler(async (req, res, next) => {
     const errors = validationResult(req);
-    const id = await User.findOne({ username: req.params.username }).exec();
+    const id = await User.findOne(
+      { username: req.params.username },
+      'id'
+    ).exec();
+
+    console.log(id);
 
     if (!id) {
       const err = new Error('User not found');
@@ -81,3 +86,16 @@ exports.put = [
     }
   }),
 ];
+
+exports.delete = asyncHandler(async (req, res, next) => {
+  const user = await User.findOne({ username: req.params.username }).exec();
+
+  if (!user) {
+    const err = new Error('User not found');
+    err.status = 404;
+    return next(err);
+  }
+
+  const deletedUser = await User.findByIdAndRemove(user._id);
+  res.json({ data: { deletedUser } });
+});
