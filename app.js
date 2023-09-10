@@ -29,10 +29,11 @@ app.use((req, res, next) => {
 });
 
 app.use((err, req, res, next) => {
+  const status = err.status || 500;
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
-  res.status(err.status || 500);
-  res.render('error');
+  res.status(status);
+  res.send(status);
 });
 
 module.exports = app;
