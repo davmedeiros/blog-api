@@ -35,7 +35,7 @@ router.post('/user', userController.post);
 
 router.put('/user/:username', checkAuthenticated, userController.put);
 
-router.delete('/user/:username', userController.delete);
+router.delete('/user/:username', checkAuthenticated, userController.delete);
 
 router.get('/login', (req, res) => {
   res.json({ error: { message: 'Login page - to be implemented...' } });
@@ -52,11 +52,11 @@ router.post(
 // Post
 router.get('/post/:username/:id', postController.get);
 
-router.post('/post/:username', postController.post);
+router.post('/post/:username', checkAuthenticated, postController.post);
 
-router.put('/post/:username/:id', postController.put);
+router.put('/post/:username/:id', checkAuthenticated, postController.put);
 
-router.delete('/post/:username/:id', postController.delete);
+router.delete('/post/:username/:id', checkAuthenticated, postController.delete);
 
 // Comment
 router.get('/post/:username/:postId/:id', commentController.get);
