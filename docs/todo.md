@@ -21,6 +21,7 @@
 - [x] Anyone can read posts.
 - [x] Anyone can read comments.
 - [x] Hashed passwords can't be retrieved by the API.
+- [ ] Users can sign-in.
 
 ### Update
 
