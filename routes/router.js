@@ -8,7 +8,7 @@ const commentController = require('../controllers/commentController');
 
 // Home
 router.get('/', (req, res) => {
-  let message = req.user ? `Welcome ${req.user.full_name}` : 'Home';
+  const message = req.user ? `Welcome ${req.user.full_name}` : 'Home';
   res.json({ data: { message } });
 });
 
