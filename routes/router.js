@@ -8,7 +8,8 @@ const commentController = require('../controllers/commentController');
 
 // Home
 router.get('/', (req, res) => {
-  res.json({ warning: { message: 'Home page - to be implemented...' } });
+  let message = req.user ? `Welcome ${req.user.full_name}` : 'Home';
+  res.json({ data: { message } });
 });
 
 // User
@@ -21,7 +22,7 @@ router.put('/user/:username', userController.put);
 router.delete('/user/:username', userController.delete);
 
 router.get('/login', (req, res) => {
-  res.json({ warning: { message: 'Login page - to be implemented...' } });
+  res.json({ error: { message: 'Login page - to be implemented...' } });
 });
 
 router.post(
