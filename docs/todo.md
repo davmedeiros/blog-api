@@ -13,7 +13,7 @@
 - [x] Anyone can comment on posts.
 - [x] Users have passwords protected by hashing.
 - [ ] Non users can't create posts.
-- [ ] Users can't create posts for other users.
+- [x] Users can't create posts for other users.
 
 ### Read
 
@@ -21,7 +21,7 @@
 - [x] Anyone can read posts.
 - [x] Anyone can read comments.
 - [x] Hashed passwords can't be retrieved by the API.
-- [ ] Users can sign-in.
+- [x] Users can sign-in.
 
 ### Update
 
