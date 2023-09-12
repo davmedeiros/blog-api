@@ -4,10 +4,7 @@ const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 
 exports.get = asyncHandler(async (req, res, next) => {
-  const user = await User.findOne(
-    { username: req.params.username },
-    { password: 0 }
-  ).exec();
+  const user = await User.findOne({ username: req.params.username }).exec();
 
   if (!user) {
     const err = new Error('User not found');
@@ -45,7 +42,8 @@ exports.post = [
           return next(err);
         } else {
           await user.save();
-          res.json({ data: { user } });
+          const createdUser = await User.findById(user._id);
+          res.json({ data: { createdUser } });
         }
       } else {
         return next(err);
@@ -88,9 +86,7 @@ exports.put = [
       err.status = 400;
       return next(err);
     } else {
-      const updatedUser = await User.findByIdAndUpdate(id, user, {
-        password: 0,
-      });
+      const updatedUser = await User.findByIdAndUpdate(id, user, {});
       res.json({ data: { updatedUser } });
     }
   }),
@@ -108,6 +104,6 @@ exports.delete = asyncHandler(async (req, res, next) => {
     return next(err);
   }
 
-  const deletedUser = await User.findByIdAndRemove(user._id, { password: 0 });
+  const deletedUser = await User.findByIdAndRemove(user._id);
   res.json({ data: { deletedUser } });
 });

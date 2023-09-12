@@ -11,7 +11,7 @@
 - [x] Anyone can create a user.
 - [x] Users can create posts.
 - [x] Anyone can comment on posts.
-- [ ] Users have passwords protected by hashing.
+- [x] Users have passwords protected by hashing.
 - [ ] Non users can't create posts.
 - [ ] Users can't create posts for other users.
 

@@ -24,10 +24,7 @@ exports.post = [
 
   asyncHandler(async (req, res, next) => {
     const errors = validationResult(req);
-    const user = await User.findOne(
-      { username: req.params.username },
-      { password: 0 }
-    ).exec();
+    const user = await User.findOne({ username: req.params.username }).exec();
 
     if (!user) {
       const err = new Error('User not found');
