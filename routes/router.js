@@ -9,13 +9,13 @@ const commentController = require('../controllers/commentController');
 const checkAuthenticated = (req, res, next) => {
   if (!req.isAuthenticated()) {
     const err = new Error('Authentication error - Please login first.');
-    err.status = 404;
+    err.status = 401;
     return next(err);
   }
 
   if (req.params.username !== req.user.username) {
     const err = new Error('Authentication error - Not authorized.');
-    err.status = 404;
+    err.status = 403;
     return next(err);
   }
 
