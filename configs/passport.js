@@ -5,8 +5,12 @@ const User = require('../models/user');
 const initialize = (passport) => {
   passport.use(
     new LocalStrategy(async (username, password, done) => {
+      console.log(username);
+      console.log(password);
       try {
-        const user = await User.findOne({ username: username });
+        const user = await User.findOne({ username: username }).select(
+          '+password'
+        );
         if (!user) {
           return done(null, false, { message: 'Incorrect username' });
         }

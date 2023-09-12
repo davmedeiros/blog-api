@@ -1,12 +1,14 @@
 const express = require('express');
 const router = express.Router();
+const passport = require('passport');
+
 const userController = require('../controllers/userController');
 const postController = require('../controllers/postController');
 const commentController = require('../controllers/commentController');
 
 // Home
 router.get('/', (req, res) => {
-  res.send(`GET ${req.url}  - to be implemented...`);
+  res.json({ warning: { message: 'Home page - to be implemented...' } });
 });
 
 // User
@@ -17,6 +19,18 @@ router.post('/user', userController.post);
 router.put('/user/:username', userController.put);
 
 router.delete('/user/:username', userController.delete);
+
+router.get('/login', (req, res) => {
+  res.json({ warning: { message: 'Login page - to be implemented...' } });
+});
+
+router.post(
+  '/login',
+  passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login',
+  })
+);
 
 // Post
 router.get('/post/:username/:id', postController.get);
