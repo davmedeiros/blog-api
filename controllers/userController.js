@@ -64,6 +64,19 @@ exports.put = [
 
   asyncHandler(async (req, res, next) => {
     const errors = validationResult(req);
+
+    if (!req.user) {
+      const err = new Error('Authentication error - Please login first.');
+      err.status = 404;
+      return next(err);
+    }
+
+    if (req.params.username !== req.user.username) {
+      const err = new Error('Authentication error - Not authorized.');
+      err.status = 404;
+      return next(err);
+    }
+
     const id = await User.findOne(
       { username: req.params.username },
       'id'
@@ -74,6 +87,7 @@ exports.put = [
       err.status = 404;
       return next(err);
     }
+
     const user = new User({
       username: req.body.username,
       name: req.body.name,
