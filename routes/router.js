@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+const cors = require('cors');
 
 const userController = require('../controllers/userController');
 const postController = require('../controllers/postController');
@@ -21,6 +22,8 @@ const checkAuthenticated = (req, res, next) => {
 
   return next();
 };
+
+router.use(cors());
 
 // Home
 router.get('/', (req, res) => {
