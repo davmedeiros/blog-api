@@ -41,14 +41,20 @@ router.put('/user/:username', checkAuthenticated, userController.put);
 router.delete('/user/:username', checkAuthenticated, userController.delete);
 
 router.get('/login', (req, res) => {
-  res.json({ error: { message: 'Login page - to be implemented...' } });
+  console.log(req.user);
+  if (req.user) {
+    console.log(`${req.user.username} logged in`);
+    res.json({ data: { message: `${req.user.username} logged in` } });
+  } else {
+    res.json({ data: { message: 'Not logged in' } });
+  }
 });
 
 router.post(
   '/login',
   passport.authenticate('local', {
-    successRedirect: '/',
     failureRedirect: '/login',
+    successRedirect: '/login',
   })
 );
 
